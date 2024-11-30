@@ -1,0 +1,15 @@
+
+def my_zip(names, ids, points, strct=True):
+    if strct and (len(names) != len(ids) or len(points) != len(ids)):
+        raise ValueError("All lists must have the same length when strct=True")
+    return list(zip(names, ids, points))
+customer_names = ['Alice', 'Bob', 'Charlie']
+customer_ids = [101, 102, 103, 104]  
+shopping_points = [500, 750, 300]
+try:
+    print(my_zip(customer_names, customer_ids, shopping_points, strct=True))
+except ValueError as e:
+    print(e)
+
+ 
+print(my_zip(customer_names, customer_ids, shopping_points, strct=False))
